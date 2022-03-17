@@ -17,29 +17,22 @@ namespace VPaHMI_lab5.Views
 #endif
 
             this.FindControl<Button>("OK").Click += delegate
+            {
+                var input = this.FindControl<TextBox>("RegexInput");
+                try
                 {
-                    var context = this.Owner.DataContext as MainWindowViewModel;
-                    var inputField = this.FindControl<TextBox>("RegexInput");
-                    try
-                    {
-                        Regex rg = new Regex(inputField.Text);
-                        context.Regex = inputField.Text;
-                        this.CloseWindow();
-                    }
-                    catch (Exception)
-                    {
-                        inputField.Text = "INVALID REGEX";
-                    }
-
-                };
+                    Regex rg = new(input.Text);
+                    this.Close(input.Text);
+                }
+                catch (Exception)
+                {
+                    input.Text = "INVALID REGEX";
+                }
+            };
             this.FindControl<Button>("Cancel").Click += delegate
             {
-                CloseWindow();
+                this.Close();
             };
-        }
-        private void CloseWindow()
-        {
-            this.Close();
         }
         private void InitializeComponent()
         {

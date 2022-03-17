@@ -39,11 +39,11 @@ namespace VPaHMI_lab5.Views
             };
 
         }
-        public void ShowRegexSetWindow(object sender, RoutedEventArgs e)
+        public async void ShowRegexSetWindow(object sender, RoutedEventArgs e)
         {
-            var dialogWindow = new SetRegexWindow();
-            dialogWindow.FindControl<TextBox>("RegexInput").Text = (this.DataContext as MainWindowViewModel).Regex;
-            dialogWindow.ShowDialog(this);
+            var context = this.DataContext as MainWindowViewModel;
+            string? str = await new SetRegexWindow().ShowDialog<string?>((Window)this.VisualRoot);
+            context.Regex = str;
         }
     }
 }
