@@ -20,11 +20,11 @@
 			<RowDefinition Height="50" />
 		</Grid.RowDefinitions>
 	
-		<TextBox Grid.Column="0" Grid.Row="0" FontSize="25"></TextBox>
-		<TextBox Grid.Column="1" Grid.Row="0" FontSize="25"></TextBox>
+		<TextBox Name="Input" Text="{Binding Input}" Grid.Column="0" Grid.Row="0" FontSize="25" AcceptsReturn="True" TextWrapping="Wrap"></TextBox>
+		<TextBox Name="Output" Text="{Binding Output}" Grid.Column="1" Grid.Row="0" FontSize="25" Focusable="False"></TextBox>
 		
-		<Button Grid.Column="0" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="25">Open File</Button>
-		<Button Grid.Column="1" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="25">Save File</Button>
-		<Button Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="25">Set Regex</Button>
+		<Button Name="OpenFile" Grid.Column="0" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="25">Open File</Button>
+		<Button Name="SaveFile" Grid.Column="1" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="25">Save File</Button>
+		<Button Name="SetRegex" Click="ShowRegexSetWindow" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="25">Set Regex</Button>
 	</Grid>
 </Window>
